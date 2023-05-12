@@ -204,7 +204,7 @@ export default ({ children, pageContext, location }) => {
           window.adobeImsFactory.createIMSLib(IMS_CONFIG_JSON);
           window.adobeIMS.initialize();
         } catch (e) {
-          console.error(`AIO: IMS error.`);
+          console.error(`AIO: IMS error.`, e);
         } finally {
           setIsLoadingIms(false);
         }
