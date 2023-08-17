@@ -608,7 +608,7 @@ export default ({ children, pageContext, location }) => {
     // const expectedOrigin = setExpectedOrigin(window.location.host);
     // if (evt.origin !== expectedOrigin) return;
     try {
-      const message = typeof evt.data === 'string' ? JSON.parse(evt.data) : evt.data;
+      const message = typeof evt.data === 'string' && !evt.data.startsWith("setImmediate") ? JSON.parse(evt.data) : evt.data;
       if (message.query) {
         setQueryStringParameter(SEARCH_PARAMS.query, message.query);
         setQueryStringParameter(SEARCH_PARAMS.keywords, message.keywords);
@@ -618,7 +618,7 @@ export default ({ children, pageContext, location }) => {
       }
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.error(e);
+      console.error(evt, e);
     }
   };
 

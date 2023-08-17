@@ -34,5 +34,9 @@
     "cy:open": "cypress open",
     "test:e2e": "start-server-and-test start http://localhost:9000 cy:open"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.2.3",
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "jszip-utils": "^0.1.0"
+  }
 }
